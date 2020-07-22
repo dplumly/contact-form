@@ -33,19 +33,9 @@ color: #61e3d3;
 
 */
 
-input {
-	outline: none;
-	border: none;
-}
-
-textarea {
-  outline: none;
-  border: none;
-}
-
-textarea:focus, input:focus {
-  border-color: transparent !important;
-}
+input { outline: none; border: none; }
+textarea { outline: none; border: none; }
+textarea:focus, input:focus { border-color: transparent !important; }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
@@ -67,29 +57,13 @@ textarea:-moz-placeholder { color: #999999; }
 textarea::-moz-placeholder { color: #999999; }
 textarea:-ms-input-placeholder { color: #999999; }
 
-/*---------------------------------------------*/
-button {
-	outline: none !important;
-	border: none;
-	background: transparent;
-}
-
-button:hover {
-	cursor: pointer;
-}
-
-iframe {
-	border: none !important;
-}
-
-/*//////////////////////////////////////////////////////////////////
-[ Contact 2 ]*/
+/*//////////////////////////////////////////////////////////////////*/
 .form-container {
   width: 100%;  
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background: url('../contact-form-bg.jpg') top center;
+  background: url('../contactForm/contact-form-bg.jpg') top center;
 }
 
 .form-bg {
@@ -118,7 +92,6 @@ background-color: rgba(234, 234, 234, 0.6);
 
 /*------------------------------------------------------------------
 [  ]*/
-
 /*.contact-form-form { width: 100%; }*/
 
 .form-title {
@@ -166,7 +139,6 @@ background-color: rgba(234, 234, 234, 0.6);
   left: 0;
   width: 0;
   height: 2px;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -230,31 +202,7 @@ textarea.input + .focus-input::after { top: 16px; left: 0; }
     text-align: center;
 
 }
-/*
-.form-card-form-btn {
-  display: block;
-  position: relative;
-  z-index: 1;
-  border-radius: 2px;
-  width: auto;
-  overflow: hidden;
-  margin: 0 auto;
-}
 
-.contact-form-form-bgbtn {
-  position: absolute;
-  z-index: -1;
-  width: 300%;
-  height: 100%;
-  background: #61e3d3;
-  top: 0;
-  left: -100%;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
-*/
 .form-button {
   display: -webkit-box;
   display: -webkit-flex;
@@ -267,7 +215,7 @@ textarea.input + .focus-input::after { top: 16px; left: 0; }
   min-width: 244px;
   height: 50px;
   font-size: 16px;
-  color: #fff;
+  color: #f3f3f3;
   line-height: 1.2;
 }
 /*
@@ -284,10 +232,27 @@ textarea.input + .focus-input::after { top: 16px; left: 0; }
 /*------------------------------------------------------------------
 [ Alert validate ]*/
 
-.validate-input {
-  position: relative;
+.validate-input { position: relative; }
+
+.alert-validate::after {
+  content: "\f12a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #9e1c2b;
+  font-size: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 8px;
 }
 
+
+
+/*
 .alert-validate::before {
   content: attr(data-validate);
   position: absolute;
@@ -316,31 +281,52 @@ textarea.input + .focus-input::after { top: 16px; left: 0; }
   -moz-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
-
-.alert-validate::after {
-  content: "\f12a";
-  font-family: FontAwesome;
-  display: block;
-  position: absolute;
-  color: #c80000;
-  font-size: 16px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 8px;
-}
-
 .alert-validate:hover:before {
   visibility: visible;
   opacity: 1;
 }
-
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;
     opacity: 1;
   }
 }
+*/
+/*
+.form-card-form-btn {
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 2px;
+  width: auto;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.contact-form-form-bgbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #61e3d3;
+  top: 0;
+  left: -100%;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+*/
+/*---------------------------------------------
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}*/
