@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="origin" />
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">-->
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+    <button id="myBtn">Open Modal</button>
+
+
+    <div id="contact-modal" class="form-container">
+        <div class="form-card">
+            <span class="close">&times;</span>
+            <form id="form-trigger" class="validate-form" method="post" name="contact-form"
+                action="https://formspree.io/mqkywppn">
+                <span data-text-swap="Thanks!" class="form-title">Hit me up!</span>
+
+
+                <div class="input-wrapper validate-input">
+                    <input class="input" type="text" name="name">
+                    <span class="focus-input" data-placeholder="NAME"></span>
+                </div>
+
+                <div class="input-wrapper validate-input">
+                    <input class="input" type="text" name="email">
+                    <span class="focus-input" data-placeholder="EMAIL"></span>
+                </div>
+
+                <div class="input-wrapper validate-input">
+                    <textarea class="input" name="message"></textarea>
+                    <span class="focus-input" data-placeholder="MESSAGE"></span>
+                </div>
+
+                <div class="submit-container">
+                    <input class="form-button" type="submit" value="Send">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <!--	===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="js/modal3.js"></script>
+    <script src="js/contact-form.js"></script>
+
+
+    <script>
+        var button = document.querySelectorAll("form-button")[0];
+        button.addEventListener('click', function () {
+            if (button.getAttribute("data-text-swap") == button.innerHTML) {
+                button.innerHTML = button.getAttribute("data-text-original");
+            } else {
+                button.setAttribute("data-text-original", button.innerHTML);
+                button.innerHTML = button.getAttribute("data-text-swap");
+            }
+        }, false);
+    </script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            // get the form elements defined in your form HTML above
+
+            var form = document.getElementById("form-trigger");
+            var button = document.getElementById("submit-container");
+            var status = document.getElementById("my-form-status");
+
+            // Success and Error functions for after the form is submitted
+
+            function success() {
+                form.reset();
+                button.style = "display: none ";
+                status.innerHTML = "Thanks!";
+            }
+
+            function error() {
+                status.innerHTML = "Oops! There was a problem.";
+            }
+
+            // handle the form submission event
+            form.addEventListener("submit", function (ev) {
+                ev.preventDefault();
+                var data = new FormData(form);
+                ajax(form.method, form.action, data, success, error);
+            });
+        });
+
+        // helper function for sending an AJAX request
+        function ajax(method, url, data, success, error) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== XMLHttpRequest.DONE) return;
+                if (xhr.status === 200) {
+                    success(xhr.response, xhr.responseType);
+                } else {
+                    error(xhr.status, xhr.response, xhr.responseType);
+                }
+            };
+            xhr.send(data);
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
